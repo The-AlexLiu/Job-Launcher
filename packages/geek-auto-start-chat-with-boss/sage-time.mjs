@@ -1,5 +1,5 @@
 import { readConfigFile } from './runtime-file-utils.mjs'
-import { sleep } from "@job-launcher/utils/sleep.mjs"
+import { sleep } from "@geekgeekrun/utils/sleep.mjs"
 let {
   isSageTimeEnabled,
   sageTimeOpTimes,

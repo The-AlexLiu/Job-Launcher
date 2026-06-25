@@ -1,10 +1,10 @@
 import { app, dialog } from 'electron'
 import { AsyncSeriesHook, AsyncSeriesWaterfallHook } from 'tapable'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import { AUTO_CHAT_ERROR_EXIT_CODE } from '../../../common/enums/auto-start-chat'
 import attachListenerForKillSelfOnParentExited from '../../utils/attachListenerForKillSelfOnParentExited'
 import minimist from 'minimist'
-import SqlitePluginModule from '@job-launcher/sqlite-plugin'
+import SqlitePluginModule from '@geekgeekrun/sqlite-plugin'
 import { connectToDaemon, sendToDaemon } from '../OPEN_SETTING_WINDOW/connect-to-daemon'
 import { checkShouldExit } from '../../utils/worker'
 import initPublicIpc from '../../utils/initPublicIpc'
@@ -25,7 +25,7 @@ const defaultRerunInterval = (() => {
 
 const initPlugins = async (hooks) => {
   const { storageFilePath } = await import(
-    '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+    '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
   )
   new SqlitePlugin(path.join(storageFilePath, 'public.db')).apply(hooks)
 }
@@ -88,7 +88,7 @@ const runRecommend = async () => {
     default: startBossAutoBrowse,
     initPuppeteer,
     bossAutoBrowseEventBus
-  } = (await import('@job-launcher/boss-auto-browse-and-chat/index.mjs')) as unknown as BossAutoBrowseModule
+  } = (await import('@geekgeekrun/boss-auto-browse-and-chat/index.mjs')) as unknown as BossAutoBrowseModule
   log('boss package import 完成，初始化 puppeteer...')
 
   process.on('disconnect', () => {
@@ -153,7 +153,7 @@ const runRecommend = async () => {
   while (true) {
     try {
       const { readConfigFile } = await import(
-        '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+        '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
       )
       const cfg = readConfigFile('boss-recruiter.json') as {
         recommendPage?: {
@@ -169,7 +169,7 @@ const runRecommend = async () => {
 
       if (jobId) {
         const { getMergedJobConfig } = await import(
-          '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+          '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
         )
         const mergedCfg = getMergedJobConfig(jobId)
         log(`使用 job-id=${jobId} 的合并配置`)
@@ -234,7 +234,7 @@ const runRecommend = async () => {
         return
       }
       const { readConfigFile: readCfg } = await import(
-        '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+        '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
       )
       const errCfg = readCfg('boss-recruiter.json') as {
         recommendPage?: { rerunIntervalMs?: number }

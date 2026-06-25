@@ -6,7 +6,7 @@ import packageJson from './package.json' assert {type: 'json'}
 
 const isUiDev = process.env.NODE_ENV === 'development'
 
-export const runtimeFolderPath = path.join(os.homedir(), '.job-launcher')
+export const runtimeFolderPath = path.join(os.homedir(), '.geekgeekrun')
 
 const extensionDir = path.join(
   runtimeFolderPath,
@@ -32,19 +32,19 @@ async function getEditThisCookieZipPath () {
   return editThisCookieZipPath
 }
 
-const APP_JOBLAUNCHER_EDIT_VERSION = 1
+const APP_GEEKGEEKRUN_EDIT_VERSION = 1
 export async function ensureEditThisCookie () {
   let isNeedExtractEditThisCookie = false
-  const JOBLAUNCHER_EDIT_VERSION_FILE_PATH = path.join(editThisCookieExtensionPath, 'JOBLAUNCHER_EDIT_VERSION')
-  let job-launcherEditVersion
+  const GEEKGEEKRUN_EDIT_VERSION_FILE_PATH = path.join(editThisCookieExtensionPath, 'GEEKGEEKRUN_EDIT_VERSION')
+  let geekgeekrunEditVersion
   try {
-    const fileContent = fs.readFileSync(JOBLAUNCHER_EDIT_VERSION_FILE_PATH, { encoding: 'utf-8' })
-    job-launcherEditVersion = Number(fileContent) || 0
+    const fileContent = fs.readFileSync(GEEKGEEKRUN_EDIT_VERSION_FILE_PATH, { encoding: 'utf-8' })
+    geekgeekrunEditVersion = Number(fileContent) || 0
   }
   catch (err) {
-    job-launcherEditVersion = 0
+    geekgeekrunEditVersion = 0
   }
-  if (job-launcherEditVersion < APP_JOBLAUNCHER_EDIT_VERSION) {
+  if (geekgeekrunEditVersion < APP_GEEKGEEKRUN_EDIT_VERSION) {
     isNeedExtractEditThisCookie = true
   }
   const isExtractDoneFlagFilePath = path.join(editThisCookieExtensionPath, 'EXTRACT_DONE')

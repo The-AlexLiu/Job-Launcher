@@ -2,25 +2,25 @@ import { bootstrap, launchBoss } from './bootstrap'
 import { MsgStatus, type ChatListItem } from './types'
 import { Browser, Page } from 'puppeteer'
 import { getGptContent, sendLookForwardReplyEmotion, sendMessage } from './boss-operation'
-import { sleep, sleepWithRandomDelay } from '@job-launcher/utils/sleep.mjs'
-import { waitForPage } from '@job-launcher/utils/puppeteer/wait.mjs'
+import { sleep, sleepWithRandomDelay } from '@geekgeekrun/utils/sleep.mjs'
+import { waitForPage } from '@geekgeekrun/utils/puppeteer/wait.mjs'
 import { app, dialog } from 'electron'
-import { initDb } from '@job-launcher/sqlite-plugin'
+import { initDb } from '@geekgeekrun/sqlite-plugin'
 import {
   getPublicDbFilePath,
   readConfigFile
-} from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
-import { ChatMessageRecord } from '@job-launcher/sqlite-plugin/dist/entity/ChatMessageRecord'
+} from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+import { ChatMessageRecord } from '@geekgeekrun/sqlite-plugin/dist/entity/ChatMessageRecord'
 import {
   saveChatMessageRecord,
   getJobHireStatusRecord,
   saveJobHireStatusRecord
-} from '@job-launcher/sqlite-plugin/dist/handlers'
+} from '@geekgeekrun/sqlite-plugin/dist/handlers'
 import {
   writeStorageFile,
   readStorageFile
-} from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
-import { BossInfo } from '@job-launcher/sqlite-plugin/dist/entity/BossInfo'
+} from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+import { BossInfo } from '@geekgeekrun/sqlite-plugin/dist/entity/BossInfo'
 import { messageForSaveFilter } from '../../../common/utils/chat-list'
 import {
   AUTO_CHAT_ERROR_EXIT_CODE,
@@ -29,7 +29,7 @@ import {
   RECHAT_LLM_FALLBACK
 } from '../../../common/enums/auto-start-chat'
 import gtag from '../../utils/gtag'
-import { JobHireStatus } from '@job-launcher/sqlite-plugin/dist/enums'
+import { JobHireStatus } from '@geekgeekrun/sqlite-plugin/dist/enums'
 import dayjs from 'dayjs'
 import cheerio from 'cheerio'
 import { connectToDaemon, sendToDaemon } from '../OPEN_SETTING_WINDOW/connect-to-daemon'
@@ -326,7 +326,7 @@ const mainLoop = async () => {
       })
       sendToDaemon({
         type: 'worker-to-gui-message',
-        workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+        workerId: process.env.GEEKGEEKRUND_WORKER_ID,
         data: {
           type: 'prerequisite-step-by-step-check',
           step: {
@@ -341,7 +341,7 @@ const mainLoop = async () => {
   }
   sendToDaemon({
     type: 'worker-to-gui-message',
-    workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+    workerId: process.env.GEEKGEEKRUND_WORKER_ID,
     data: {
       type: 'prerequisite-step-by-step-check',
       step: {
@@ -389,7 +389,7 @@ const mainLoop = async () => {
       })
       sendToDaemon({
         type: 'worker-to-gui-message',
-        workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+        workerId: process.env.GEEKGEEKRUND_WORKER_ID,
         data: {
           type: 'prerequisite-step-by-step-check',
           step: {
@@ -409,7 +409,7 @@ const mainLoop = async () => {
   ) {
     sendToDaemon({
       type: 'worker-to-gui-message',
-      workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+      workerId: process.env.GEEKGEEKRUND_WORKER_ID,
       data: {
         type: 'prerequisite-step-by-step-check',
         step: {
@@ -443,7 +443,7 @@ const mainLoop = async () => {
       await storeStorage(pageMapByName.boss)
       sendToDaemon({
         type: 'worker-to-gui-message',
-        workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+        workerId: process.env.GEEKGEEKRUND_WORKER_ID,
         data: {
           type: 'prerequisite-step-by-step-check',
           step: {
@@ -458,7 +458,7 @@ const mainLoop = async () => {
   }
   sendToDaemon({
     type: 'worker-to-gui-message',
-    workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+    workerId: process.env.GEEKGEEKRUND_WORKER_ID,
     data: {
       type: 'prerequisite-step-by-step-check',
       step: {
@@ -708,7 +708,7 @@ export async function runEntry() {
   )
   sendToDaemon({
     type: 'worker-to-gui-message',
-    workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+    workerId: process.env.GEEKGEEKRUND_WORKER_ID,
     data: {
       type: 'prerequisite-step-by-step-check',
       step: {
@@ -735,7 +735,7 @@ export async function runEntry() {
     })
     sendToDaemon({
       type: 'worker-to-gui-message',
-      workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+      workerId: process.env.GEEKGEEKRUND_WORKER_ID,
       data: {
         type: 'prerequisite-step-by-step-check',
         step: {
@@ -749,7 +749,7 @@ export async function runEntry() {
   }
   sendToDaemon({
     type: 'worker-to-gui-message',
-    workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+    workerId: process.env.GEEKGEEKRUND_WORKER_ID,
     data: {
       type: 'prerequisite-step-by-step-check',
       step: {

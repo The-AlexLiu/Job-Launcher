@@ -152,7 +152,7 @@ jobs:
       - name: Create release for public
         uses: ncipollo/release-action@v1
         with:
-          repo: job-launcher
+          repo: Job-Launcher
           prerelease: true
           allowUpdates: true
           artifacts: job-launcher-ui@${{ github.sha }}/*

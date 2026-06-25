@@ -10,7 +10,7 @@ export interface BrowserInfo {
 
 const CONFIG_VERSION = 2
 
-const runtimeFolderPath = path.join(os.homedir(), '.job-launcher')
+const runtimeFolderPath = path.join(os.homedir(), '.geekgeekrun')
 export const lastUsedBrowserRecordFilePath = path.join(
   runtimeFolderPath,
   'storage',

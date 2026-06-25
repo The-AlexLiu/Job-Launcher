@@ -1,5 +1,5 @@
 ;(async () => {
-  await import('@job-launcher/pm/daemon.js')
+  await import('@geekgeekrun/pm/daemon.js')
 })()
 
 export {}

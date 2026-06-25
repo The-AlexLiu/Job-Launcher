@@ -1,15 +1,15 @@
 import {
   sleep,
   sleepWithRandomDelay
-} from '@job-launcher/utils/sleep.mjs'
+} from '@geekgeekrun/utils/sleep.mjs'
 
 import fs from 'node:fs'
 import os from 'node:os'
-import { get__dirname } from '@job-launcher/utils/legacy-path.mjs';
+import { get__dirname } from '@geekgeekrun/utils/legacy-path.mjs';
 import path from 'node:path';
 import JSON5 from 'json5'
 import { EventEmitter } from 'node:events'
-import { setDomainLocalStorage } from '@job-launcher/utils/puppeteer/local-storage.mjs'
+import { setDomainLocalStorage } from '@geekgeekrun/utils/puppeteer/local-storage.mjs'
 
 import { readConfigFile, writeStorageFile, ensureConfigFileExist, readStorageFile, ensureStorageFileExist } from './runtime-file-utils.mjs'
 import {
@@ -20,7 +20,7 @@ import {
 } from './combineCalculator.mjs'
 import { default as jobFilterConditions } from './internal-config/job-filter-conditions-20241002.json'
 import { default as rawIndustryFilterExemption } from './internal-config/job-filter-industry-filter-exemption-20241002.json'
-import { ChatStartupFrom } from '@job-launcher/sqlite-plugin/dist/entity/ChatStartupLog'
+import { ChatStartupFrom } from '@geekgeekrun/sqlite-plugin/dist/entity/ChatStartupLog'
 import {
   MarkAsNotSuitReason,
   MarkAsNotSuitOp,
@@ -29,17 +29,17 @@ import {
   JobDetailRegExpMatchLogic,
   JobSource,
   CombineRecommendJobFilterType
-} from '@job-launcher/sqlite-plugin/dist/enums'
+} from '@geekgeekrun/sqlite-plugin/dist/enums'
 import {
   activeDescList,
   RECOMMEND_JOB_ENTRY_SELECTOR,
   USER_SET_EXPECT_JOB_ENTRIES_SELECTOR,
   SEARCH_BOX_SELECTOR,
 } from './constant.mjs'
-import { parseSalary } from "@job-launcher/sqlite-plugin/dist/utils/parser"
+import { parseSalary } from "@geekgeekrun/sqlite-plugin/dist/utils/parser"
 import { waitForSageTimeOrJustContinue } from './sage-time.mjs'
 import cityGroupData from './cityGroup.mjs'
-import { hasIntersection } from '@job-launcher/utils/number.mjs';
+import { hasIntersection } from '@geekgeekrun/utils/number.mjs';
 const flattedCityList = []
 ;(cityGroupData?.zpData?.cityGroup ?? []).forEach(it => {
   const firstChar = it.firstChar
@@ -94,7 +94,7 @@ export async function initPuppeteer () {
     [
       import('puppeteer-extra'),
       import('puppeteer-extra-plugin-stealth'),
-      import('@job-launcher/puppeteer-extra-plugin-laodeng'),
+      import('@geekgeekrun/puppeteer-extra-plugin-laodeng'),
       import('puppeteer-extra-plugin-anonymize-ua')
     ]
   )

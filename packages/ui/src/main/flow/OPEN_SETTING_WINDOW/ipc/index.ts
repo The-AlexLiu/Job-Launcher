@@ -6,7 +6,7 @@ import {
   writeConfigFile,
   readStorageFile,
   storageFilePath
-} from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+} from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
 
 import { ChildProcess } from 'child_process'
 import * as JSONStream from 'JSONStream'
@@ -58,7 +58,7 @@ import {
 } from '../../../features/first-launch-notice-window'
 import { getLastUsedAndAvailableBrowser } from '../../DOWNLOAD_DEPENDENCIES/utils/browser-history'
 import { waitForCommonJobConditionDone } from '../../../features/common-job-condition'
-import { ensureConfigFileExist } from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+import { ensureConfigFileExist } from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
 
 export default function initIpc() {
   ipcMain.handle('save-config-file-from-ui', async (ev, payload) => {
@@ -440,14 +440,14 @@ export default function initIpc() {
   // ── 招聘端 LLM 配置 (boss-llm.json) ─────────────────────────────────────────
   ipcMain.handle('boss-fetch-llm-config', async () => {
     const { readBossLlmConfig } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     return readBossLlmConfig()
   })
 
   ipcMain.handle('boss-save-llm-config', async (_, payload) => {
     const { writeBossLlmConfig } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     const config = typeof payload === 'string' ? JSON.parse(payload) : payload
     return await writeBossLlmConfig(config)
@@ -650,14 +650,14 @@ export default function initIpc() {
 
   ipcMain.handle('fetch-webhook-config', async () => {
     const { readConfigFile: readBossConfigFile } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     return readBossConfigFile('webhook.json') ?? null
   })
 
   ipcMain.handle('save-webhook-config', async (_, payload) => {
     const { readConfigFile: readBossConfigFile, writeConfigFile: writeBossConfigFile } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     const config = JSON.parse(payload)
     const existing = readBossConfigFile('webhook.json') ?? {}
@@ -666,7 +666,7 @@ export default function initIpc() {
 
   ipcMain.handle('test-webhook', async () => {
     const { readConfigFile: readBossConfigFile, storageFilePath } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     const config = readBossConfigFile('webhook.json')
     if (!config?.url) {
@@ -682,7 +682,7 @@ export default function initIpc() {
 
   ipcMain.handle('trigger-webhook-manually', async (_, useRealData?: boolean) => {
     const { readConfigFile: readBossConfigFile, storageFilePath } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     const config = readBossConfigFile('webhook.json')
     if (!config?.url) {
@@ -833,7 +833,7 @@ export default function initIpc() {
         ? [process.argv[1], '--mode=bossChatDebugMain']
         : ['--mode=bossChatDebugMain'],
       {
-        env: { ...process.env, PUPPETEER_EXECUTABLE_PATH: puppeteerExecutable.executablePath, JOBLAUNCHERD_PIPE_NAME: process.env.JOBLAUNCHERD_PIPE_NAME },
+        env: { ...process.env, PUPPETEER_EXECUTABLE_PATH: puppeteerExecutable.executablePath, GEEKGEEKRUND_PIPE_NAME: process.env.GEEKGEEKRUND_PIPE_NAME },
         stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe']
       }
     )
@@ -946,7 +946,7 @@ export default function initIpc() {
 
   ipcMain.handle('check-boss-recruiter-cookie-file', async () => {
     const { readStorageFile } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     const cookies = readStorageFile('boss-cookies.json')
     return checkCookieListFormat(cookies)
@@ -954,7 +954,7 @@ export default function initIpc() {
 
   ipcMain.handle('save-boss-recruiter-config', async (_, payload) => {
     const { readConfigFile: readBossConfigFile, writeConfigFile: writeBossConfigFile } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     payload = JSON.parse(payload)
 
@@ -1032,7 +1032,7 @@ export default function initIpc() {
 
   ipcMain.handle('fetch-boss-recruiter-config-file-content', async () => {
     const { readConfigFile: readBossConfigFile } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     return {
       config: {
@@ -1044,14 +1044,14 @@ export default function initIpc() {
 
   ipcMain.handle('fetch-boss-jobs-config', async () => {
     const { readBossJobsConfig } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     return readBossJobsConfig()
   })
 
   ipcMain.handle('save-boss-jobs-config', async (_, payload) => {
     const { readBossJobsConfig, writeBossJobsConfig } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     const incoming = typeof payload === 'string' ? JSON.parse(payload) : payload
     const existing = readBossJobsConfig()
@@ -1064,17 +1064,17 @@ export default function initIpc() {
 
   ipcMain.handle('generate-llm-rubric', async (_, payload: { sourceJd?: string; modelId?: string | null }) => {
     const { setLevel, debug: logDebug, info: logInfo, error: logError } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/logger.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/logger.mjs'
     )
     const { readConfigFile } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     const config = readConfigFile('boss-recruiter.json') || {}
     setLevel((config as { logLevel?: string }).logLevel || 'info')
 
     const LOG = '[generate-llm-rubric/ipc]'
     const { generateRubricFromJd } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/llm-rubric.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/llm-rubric.mjs'
     )
     const sourceJd = typeof payload?.sourceJd === 'string' ? payload.sourceJd : ''
     const modelId = typeof payload?.modelId === 'string' ? payload.modelId : null
@@ -1097,10 +1097,10 @@ export default function initIpc() {
     rubric?: { knockouts: string[]; dimensions: any[]; passThreshold?: number }
   }) => {
     const { evaluateResumeByRubric } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/llm-rubric.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/llm-rubric.mjs'
     ) as any
     const { readBossJobsConfig } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
 
     let rubricConfig: { knockouts?: string[]; dimensions?: any[]; passThreshold?: number } | null = null
@@ -1133,7 +1133,7 @@ export default function initIpc() {
     passThreshold?: number
   }) => {
     const { readBossJobsConfig, writeBossJobsConfig } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )
     const config = readBossJobsConfig()
     const jobs: any[] = config.jobs ?? []
@@ -1152,10 +1152,10 @@ export default function initIpc() {
 
   ipcMain.handle('sync-boss-job-list', async (ev) => {
     const { setLevel, debug: logDebug, info: logInfo } = await import(
-      '@job-launcher/boss-auto-browse-and-chat/logger.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/logger.mjs'
     )
     const { readConfigFile, readBossJobsConfig, writeBossJobsConfig, readStorageFile: readBossStorageFile } =
-      await import('@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs')
+      await import('@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs')
     const config = readConfigFile('boss-recruiter.json') || {}
     setLevel((config as { logLevel?: string }).logLevel || 'info')
 
@@ -1197,12 +1197,12 @@ export default function initIpc() {
     log(`使用浏览器: ${puppeteerExecutable.executablePath}`)
 
     log('初始化 Puppeteer...')
-    const { initPuppeteer } = await import('@job-launcher/boss-auto-browse-and-chat/index.mjs') as any
+    const { initPuppeteer } = await import('@geekgeekrun/boss-auto-browse-and-chat/index.mjs') as any
     process.env.PUPPETEER_EXECUTABLE_PATH = puppeteerExecutable.executablePath
     const { puppeteer } = await initPuppeteer()
 
     const bossCookies = readBossStorageFile('boss-cookies.json')
-    const { setDomainLocalStorage } = await import('@job-launcher/utils/puppeteer/local-storage.mjs') as any
+    const { setDomainLocalStorage } = await import('@geekgeekrun/utils/puppeteer/local-storage.mjs') as any
     const bossLocalStorage = readBossStorageFile('boss-local-storage.json')
 
     // 与招聘端调试工具一致：非 headless、相同 viewport 与 protocolTimeout，避免站点对 headless 做差异化或拦截
@@ -1218,7 +1218,7 @@ export default function initIpc() {
       BOSS_CHAT_INDEX_URL,
       CHAT_PAGE_JOB_DROPDOWN_SELECTOR,
       CHAT_PAGE_JOB_ITEM_SELECTOR
-    } = await import('@job-launcher/boss-auto-browse-and-chat/constant.mjs')
+    } = await import('@geekgeekrun/boss-auto-browse-and-chat/constant.mjs')
 
     try {
       const page = (await browser.pages())[0]

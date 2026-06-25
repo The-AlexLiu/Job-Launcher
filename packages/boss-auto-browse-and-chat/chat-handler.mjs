@@ -6,7 +6,7 @@
  * 不直接调用 page.click() / page.mouse.click()，以规避 BOSS 鼠标埋点检测。
  */
 
-import { sleep, sleepWithRandomDelay } from '@job-launcher/utils/sleep.mjs'
+import { sleep, sleepWithRandomDelay } from '@geekgeekrun/utils/sleep.mjs'
 import { getResumeData, extractResumeText } from './resume-extractor.mjs'
 import { createHumanCursor } from './humanMouse.mjs'
 import { safeClickElement, dismissBlockingOverlays } from './dialog-dismisser.mjs'

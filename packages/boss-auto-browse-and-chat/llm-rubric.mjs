@@ -145,7 +145,7 @@ ${dimensionsDesc}
       knockouts: knockouts.length,
       passThreshold
     })
-    const { completes } = await import('@job-launcher/utils/gpt-request.mjs')
+    const { completes } = await import('@geekgeekrun/utils/gpt-request.mjs')
     const completion = await completes(
       {
         baseURL: client.baseURL,
@@ -258,7 +258,7 @@ export async function generateRubricFromJd (sourceJd, options = {}) {
 
   try {
     logInfo(LOG, 'generateRubricFromJd start', { model: client.model, jdChars: String(sourceJd || '').length })
-    const { completes } = await import('@job-launcher/utils/gpt-request.mjs')
+    const { completes } = await import('@geekgeekrun/utils/gpt-request.mjs')
     const completion = await completes(
       {
         baseURL: client.baseURL,

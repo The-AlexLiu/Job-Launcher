@@ -4,7 +4,7 @@ export async function checkShouldExit () {
     const shouldExitResponse = await sendToDaemon(
       {
         type: 'check-should-exit',
-        workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+        workerId: process.env.GEEKGEEKRUND_WORKER_ID,
       },
       {
         needCallback: true

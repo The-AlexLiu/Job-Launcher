@@ -11,7 +11,7 @@
   "author": "Alex Liu",
   "license": "ISC",
   "dependencies": {
-    "@job-launcher/puppeteer-extra-plugin-laodeng": "workspace:*",
+    "@geekgeekrun/puppeteer-extra-plugin-laodeng": "workspace:*",
     "cheerio": "1.0.0-rc.12",
     "dayjs": "^1.11.10",
     "json5": "^2.2.3",
@@ -44,6 +44,5 @@
       "esbuild",
       "puppeteer"
     ]
-  },
-  "homepage": "https://github.com/The-AlexLiu/Job-Launcher"
+  }
 }

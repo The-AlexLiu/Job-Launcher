@@ -1,10 +1,10 @@
 import { app, dialog } from 'electron'
 import { AsyncSeriesHook, AsyncSeriesWaterfallHook } from 'tapable'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import { AUTO_CHAT_ERROR_EXIT_CODE } from '../../../common/enums/auto-start-chat'
 import attachListenerForKillSelfOnParentExited from '../../utils/attachListenerForKillSelfOnParentExited'
 import minimist from 'minimist'
-import SqlitePluginModule from '@job-launcher/sqlite-plugin'
+import SqlitePluginModule from '@geekgeekrun/sqlite-plugin'
 import { connectToDaemon, sendToDaemon } from '../OPEN_SETTING_WINDOW/connect-to-daemon'
 import { checkShouldExit } from '../../utils/worker'
 import initPublicIpc from '../../utils/initPublicIpc'
@@ -28,7 +28,7 @@ const rerunInterval = (() => {
 
 const initPlugins = async (hooks) => {
   const { storageFilePath } = await import(
-    '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+    '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
   )
   new SqlitePlugin(path.join(storageFilePath, 'public.db')).apply(hooks)
 }
@@ -67,7 +67,7 @@ const waitForBossVerificationCompletion = async (page: any, expectedUrlPrefix: s
   try {
     const { Notification } = await import('electron')
     new Notification({
-      title: 'Job Launcher - 需要人工验证',
+      title: 'GeekGeekRun - 需要人工验证',
       body: '检测到 BOSS 直聘安全验证，请在打开的浏览器窗口中完成验证，完成后程序将自动继续。'
     }).show()
   } catch { /* Notification 不可用时静默忽略 */ }
@@ -142,7 +142,7 @@ const runAutoBrowseAndChat = async () => {
     initPuppeteer,
     launchBrowserAndNavigateToChat,
     bossAutoBrowseEventBus
-  } = (await import('@job-launcher/boss-auto-browse-and-chat/index.mjs')) as unknown as BossAutoBrowseModule
+  } = (await import('@geekgeekrun/boss-auto-browse-and-chat/index.mjs')) as unknown as BossAutoBrowseModule
   log('boss package import 完成，初始化 puppeteer...')
 
   process.on('disconnect', () => {
@@ -216,7 +216,7 @@ const runAutoBrowseAndChat = async () => {
     // 逐条实时触发：每打招呼后立即发送一条 webhook
     try {
       const { readConfigFile: readBossConfigFile, storageFilePath } = await import(
-        '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+        '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
       )
       const webhookConfig = readBossConfigFile('webhook.json')
       if (webhookConfig?.enabled && webhookConfig?.url && webhookConfig?.sendMode === 'realtime') {
@@ -261,7 +261,7 @@ const runAutoBrowseAndChat = async () => {
   while (true) {
     try {
       const { readBossJobsConfig, getMergedJobConfig } = await import(
-        '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+        '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
       )
       const jobsConfig = readBossJobsConfig()
       const sequenceJobs = (jobsConfig.jobs || []).filter(
@@ -343,7 +343,7 @@ const runAutoBrowseAndChat = async () => {
       log('startBossAutoBrowse + 沟通页 完成，检查 webhook 配置...')
       try {
         const { readConfigFile: readBossConfigFile, storageFilePath } = await import(
-          '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+          '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
         )
         const webhookConfig = readBossConfigFile('webhook.json')
         if (!webhookConfig?.enabled || !webhookConfig?.url) {
@@ -383,7 +383,7 @@ const runAutoBrowseAndChat = async () => {
           try {
             const { Notification } = await import('electron')
             new Notification({
-              title: 'Job Launcher - 可能需要人工验证',
+              title: 'GeekGeekRun - 可能需要人工验证',
               body: 'BOSS 直聘可能弹出了安全验证。请检查浏览器窗口，完成验证后程序将在下一轮自动重启继续。'
             }).show()
           } catch { /* Notification 不可用时静默忽略 */ }

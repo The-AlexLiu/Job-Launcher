@@ -3,7 +3,7 @@
  * 所有页面点击均通过 createHumanCursor，使用 sleepWithRandomDelay 做随机延迟。
  */
 
-import { sleepWithRandomDelay } from '@job-launcher/utils/sleep.mjs'
+import { sleepWithRandomDelay } from '@geekgeekrun/utils/sleep.mjs'
 import { readConfigFile, getMergedJobConfig } from './runtime-file-utils.mjs'
 import { setupNetworkInterceptor, parseGeekInfoFromIntercepted } from './resume-extractor.mjs'
 import { createHumanCursor } from './humanMouse.mjs'
@@ -140,7 +140,7 @@ export async function screenCandidateWithLlm (resumeText, llmRule) {
     const client = getEnabledLlmClient()
     if (!client) return defaultResult
 
-    const { completes } = await import('@job-launcher/utils/gpt-request.mjs')
+    const { completes } = await import('@geekgeekrun/utils/gpt-request.mjs')
     const systemContent = `你是一个招聘筛选助手。根据以下筛选规则，判断候选人简历是否符合要求。
 筛选规则：${llmRule || '无'}
 请仅以JSON格式回复，不要包含其他内容。格式：{"pass": true或false, "reason": "判断理由"}`

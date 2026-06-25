@@ -11,7 +11,7 @@
  * 注意：所有浏览器侧逻辑都在一次 evaluate 内做完，避免多次 round-trip；返回结果含被关闭浮层的 outerHTML 摘要供日志审计。
  */
 
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import { debug as logDebug, info as logInfo } from './logger.mjs'
 
 /** 关闭按钮文本（按优先级） */

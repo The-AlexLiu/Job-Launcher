@@ -11,7 +11,7 @@
  */
 
 import { extractResumeText, parseGeekInfoFromIntercepted } from './resume-extractor.mjs'
-import { sleepWithRandomDelay } from '@job-launcher/utils/sleep.mjs'
+import { sleepWithRandomDelay } from '@geekgeekrun/utils/sleep.mjs'
 import { createHumanCursor } from './humanMouse.mjs'
 import { dismissBlockingOverlays } from './dialog-dismisser.mjs'
 import {

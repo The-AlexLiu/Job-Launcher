@@ -198,13 +198,13 @@
 </template>
 
 <script lang="ts" setup>
-import conditions from '@job-launcher/geek-auto-start-chat-with-boss/internal-config/job-filter-conditions-20241002.json'
-import industryFilterExemption from '@job-launcher/geek-auto-start-chat-with-boss/internal-config/job-filter-industry-filter-exemption-20241002.json'
+import conditions from '@geekgeekrun/geek-auto-start-chat-with-boss/internal-config/job-filter-conditions-20241002.json'
+import industryFilterExemption from '@geekgeekrun/geek-auto-start-chat-with-boss/internal-config/job-filter-industry-filter-exemption-20241002.json'
 import { ArrowUp, ArrowDown, Delete, Plus } from '@element-plus/icons-vue'
 import { computed, PropType } from 'vue'
 import CityChooser from '@renderer/page/MainLayout/GeekAutoStartChatWithBoss/components/CityChooser.vue'
 
-import { getStaticCombineFilterKey } from '@job-launcher/geek-auto-start-chat-with-boss/combineCalculator.mjs'
+import { getStaticCombineFilterKey } from '@geekgeekrun/geek-auto-start-chat-with-boss/combineCalculator.mjs'
 
 const props = defineProps({
   modelValue: {

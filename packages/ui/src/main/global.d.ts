@@ -11,7 +11,7 @@ interface BossJobsConfig {
   [key: string]: any
 }
 
-declare module '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs' {
+declare module '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs' {
   export const configFolderPath: string
   export const storageFilePath: string
   export const configFileNameList: string[]
@@ -44,11 +44,11 @@ declare module '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs' 
   export function writeBossLlmConfig(config: any): Promise<void>
 }
 
-declare module '@job-launcher/utils/puppeteer/local-storage.mjs' {
+declare module '@geekgeekrun/utils/puppeteer/local-storage.mjs' {
   export function setDomainLocalStorage(browser: any, url: string, storage: Record<string, any>): Promise<void>
 }
 
-declare module '@job-launcher/boss-auto-browse-and-chat/index.mjs' {
+declare module '@geekgeekrun/boss-auto-browse-and-chat/index.mjs' {
   import { EventEmitter } from 'node:events'
   export const bossAutoBrowseEventBus: EventEmitter
   export function initPuppeteer(): Promise<any>

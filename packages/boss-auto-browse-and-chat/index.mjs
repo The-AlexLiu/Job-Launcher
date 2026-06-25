@@ -1,9 +1,9 @@
-import { sleep, sleepWithRandomDelay } from '@job-launcher/utils/sleep.mjs'
+import { sleep, sleepWithRandomDelay } from '@geekgeekrun/utils/sleep.mjs'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { EventEmitter } from 'node:events'
-import { setDomainLocalStorage } from '@job-launcher/utils/puppeteer/local-storage.mjs'
+import { setDomainLocalStorage } from '@geekgeekrun/utils/puppeteer/local-storage.mjs'
 import { readConfigFile, readStorageFile, writeStorageFile, ensureConfigFileExist, ensureStorageFileExist, getMergedJobConfig } from './runtime-file-utils.mjs'
 import {
   BOSS_RECOMMEND_PAGE_URL,
@@ -47,7 +47,7 @@ export async function initPuppeteer () {
   const importResult = await Promise.all([
     import('puppeteer-extra'),
     import('puppeteer-extra-plugin-stealth'),
-    import('@job-launcher/puppeteer-extra-plugin-laodeng'),
+    import('@geekgeekrun/puppeteer-extra-plugin-laodeng'),
     import('puppeteer-extra-plugin-anonymize-ua')
   ])
   puppeteer = importResult[0].default

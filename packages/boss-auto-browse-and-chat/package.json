@@ -1,5 +1,5 @@
 {
-  "name": "@job-launcher/boss-auto-browse-and-chat",
+  "name": "@geekgeekrun/boss-auto-browse-and-chat",
   "private": true,
   "version": "1.0.0",
   "description": "boss-auto-browse-and-chat",
@@ -9,9 +9,9 @@
   "author": "Alex Liu",
   "license": "ISC",
   "dependencies": {
-    "@job-launcher/utils": "workspace:*",
-    "@job-launcher/sqlite-plugin": "workspace:*",
-    "@job-launcher/puppeteer-extra-plugin-laodeng": "workspace:*",
+    "@geekgeekrun/utils": "workspace:*",
+    "@geekgeekrun/sqlite-plugin": "workspace:*",
+    "@geekgeekrun/puppeteer-extra-plugin-laodeng": "workspace:*",
     "json5": "^2.2.3",
     "puppeteer": "24.19.0",
     "puppeteer-extra": "3.3.6",

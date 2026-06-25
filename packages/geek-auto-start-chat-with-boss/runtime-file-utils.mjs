@@ -21,7 +21,7 @@ const defaultConfigFileContentMap = {
   'llm.json': JSON.stringify(defaultLlmConf),
   'common-job-condition-config.json': JSON.stringify(defaultCommonJobConditionConfig)
 }
-const runtimeFolderPath = path.join(os.homedir(), '.job-launcher')
+const runtimeFolderPath = path.join(os.homedir(), '.geekgeekrun')
 export const configFolderPath = path.join(
   runtimeFolderPath,
   'config'

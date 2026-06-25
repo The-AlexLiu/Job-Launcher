@@ -1,8 +1,8 @@
 {
-  "name": "@job-launcher/run-core-of-geek-auto-start-chat-with-boss",
+  "name": "@geekgeekrun/run-core-of-geek-auto-start-chat-with-boss",
   "private": true,
   "version": "1.0.0",
-  "description": "run-core-of-auto-start-chat-with-boss",
+  "description": "run-core-of-geek-auto-start-chat-with-boss",
   "module": "./index.mjs",
   "type": "module",
   "scripts": {
@@ -12,9 +12,9 @@
   "author": "Alex Liu",
   "license": "ISC",
   "dependencies": {
-    "@job-launcher/dingtalk-plugin": "workspace:*",
-    "@job-launcher/geek-auto-start-chat-with-boss": "workspace:*",
-    "@job-launcher/utils": "workspace:*",
-    "@job-launcher/sqlite-plugin": "workspace:*"
+    "@geekgeekrun/dingtalk-plugin": "workspace:*",
+    "@geekgeekrun/geek-auto-start-chat-with-boss": "workspace:*",
+    "@geekgeekrun/utils": "workspace:*",
+    "@geekgeekrun/sqlite-plugin": "workspace:*"
   }
 }

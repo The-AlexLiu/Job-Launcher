@@ -31,12 +31,12 @@ export async function preflightGhostCursor () {
     createCursor = mod.createCursor ?? mod.default?.createCursor
   } catch (e) {
     throw new Error(
-      'GHOST_CURSOR_UNAVAILABLE: ghost-cursor failed to load — refusing to run with bot-like clicks. Reinstall dependencies (pnpm -F @job-launcher/boss-auto-browse-and-chat install).'
+      'GHOST_CURSOR_UNAVAILABLE: ghost-cursor failed to load — refusing to run with bot-like clicks. Reinstall dependencies (pnpm -F @geekgeekrun/boss-auto-browse-and-chat install).'
     )
   }
   if (typeof createCursor !== 'function') {
     throw new Error(
-      'GHOST_CURSOR_UNAVAILABLE: ghost-cursor failed to load — refusing to run with bot-like clicks. Reinstall dependencies (pnpm -F @job-launcher/boss-auto-browse-and-chat install).'
+      'GHOST_CURSOR_UNAVAILABLE: ghost-cursor failed to load — refusing to run with bot-like clicks. Reinstall dependencies (pnpm -F @geekgeekrun/boss-auto-browse-and-chat install).'
     )
   }
   cachedGhostCursorCreate = createCursor

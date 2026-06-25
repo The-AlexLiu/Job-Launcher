@@ -2,7 +2,7 @@
   <div ref="componentRootEl" class="first-run-readme">
     <div class="first-run-readme__inner-outer">
       <div class="first-run-readme__inner">
-        <div class="readme-title">欢迎使用Job Launcher！祝您求职顺利~</div>
+        <div class="readme-title">欢迎使用 Job Launcher！祝您求职顺利~</div>
         <div class="readme-desc">
           如下是使用必读，请您逐条阅读；如果已经了解且接受，请在每一条前面打勾
         </div>
@@ -73,7 +73,7 @@
             <ElCheckbox :label="6" :class="[unreadItemsAfterClickSubmit[6] ? 'unread' : '']">
               本程序<b class="color-red">没有内置任何付费功能</b>，<b class="color-red"
                 >下载、使用是免费的</b
-              >。如果您是从GitHub以外的地方付费后“购买”的本程序，或您被提示“必须付费后才能使用本程序”，<b
+              >，任何人可以<b class="color-red">免费获得、免费使用</b>。如果您是从GitHub以外的地方付费后“购买”的本程序，或您被提示“必须付费后才能使用本程序”，<b
                 class="color-red"
                 >那您大概率被骗了</b
               >，或者<b class="color-red">您下载到了本程序修改版</b>。<b class="color-red"
@@ -118,7 +118,7 @@
 import { ElCheckbox, ElCheckboxGroup, ElMessage } from 'element-plus'
 import { ref, onMounted, onBeforeMount } from 'vue'
 import { gtagRenderer as baseGtagRenderer } from '@renderer/utils/gtag'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 
 const gtagRenderer = (name, params?: object) => {
   return baseGtagRenderer(name, {

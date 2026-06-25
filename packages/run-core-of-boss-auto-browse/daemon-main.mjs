@@ -1,6 +1,6 @@
 import path from 'node:path'
 import * as url from 'node:url'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import childProcess from 'node:child_process'
 import { BOSS_AUTO_ERROR_EXIT_CODE } from './enums.mjs'
 

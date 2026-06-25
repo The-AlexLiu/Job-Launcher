@@ -1,4 +1,4 @@
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 
 /**
  * Detect whether the page is currently showing BOSS security verification

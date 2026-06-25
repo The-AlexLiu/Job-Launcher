@@ -18,7 +18,7 @@ const defaultConfigFileContentMap = {
   'candidate-filter.json': JSON.stringify(defaultCandidateFilterConf)
 }
 
-const runtimeFolderPath = path.join(os.homedir(), '.job-launcher')
+const runtimeFolderPath = path.join(os.homedir(), '.geekgeekrun')
 export const configFolderPath = path.join(runtimeFolderPath, 'config')
 
 export const writeConfigFile = async (fileName, content, { isSync } = {}) => {

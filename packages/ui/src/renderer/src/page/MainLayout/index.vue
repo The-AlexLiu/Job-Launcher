@@ -167,7 +167,7 @@ watch(
   () => route.path,
   (path) => {
     if (path.startsWith('/main-layout/')) {
-      localStorage.setItem('job-launcher_last_main_layout_path', path)
+      localStorage.setItem('geekgeekrun_last_main_layout_path', path)
     }
   },
   { immediate: true }
@@ -212,8 +212,8 @@ const RECRUITER_WORKER_IDS = [
   'bossAutoBrowseAndChatMain',
   'syncBossJobList'
 ]
-const LOG_PANEL_STORAGE_KEY = 'job-launcher_log_panel_open'
-const LOG_PANEL_WIDTH_KEY = 'job-launcher_log_panel_width'
+const LOG_PANEL_STORAGE_KEY = 'geekgeekrun_log_panel_open'
+const LOG_PANEL_WIDTH_KEY = 'geekgeekrun_log_panel_width'
 const MAX_LOG_LINES = 500
 
 const logPanelOpen = ref(localStorage.getItem(LOG_PANEL_STORAGE_KEY) !== 'false')
@@ -226,7 +226,7 @@ function toggleLogPanel() {
   localStorage.setItem(LOG_PANEL_STORAGE_KEY, String(logPanelOpen.value))
 }
 
-const DEVTOOLS_STORAGE_KEY = 'job-launcher_devtools_open'
+const DEVTOOLS_STORAGE_KEY = 'geekgeekrun_devtools_open'
 const devToolsOpen = ref(false)
 
 function handleToggleDevTools() {

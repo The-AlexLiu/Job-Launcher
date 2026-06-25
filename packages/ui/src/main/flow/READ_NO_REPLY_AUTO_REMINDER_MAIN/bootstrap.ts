@@ -1,9 +1,9 @@
 import { Browser } from 'puppeteer'
-import { initPuppeteer } from '@job-launcher/geek-auto-start-chat-with-boss/index.mjs'
+import { initPuppeteer } from '@geekgeekrun/geek-auto-start-chat-with-boss/index.mjs'
 import { pageMapByName } from './index'
 
-import { readStorageFile } from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
-import { setDomainLocalStorage } from '@job-launcher/utils/puppeteer/local-storage.mjs'
+import { readStorageFile } from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+import { setDomainLocalStorage } from '@geekgeekrun/utils/puppeteer/local-storage.mjs'
 
 const localStoragePageUrl = `https://www.zhipin.com/desktop/`
 const bossChatUiUrl = `https://www.zhipin.com/web/geek/chat`

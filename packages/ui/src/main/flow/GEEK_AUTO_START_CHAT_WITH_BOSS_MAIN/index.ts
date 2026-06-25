@@ -1,16 +1,16 @@
-import DingtalkPlugin from '@job-launcher/dingtalk-plugin/index.mjs'
+import DingtalkPlugin from '@geekgeekrun/dingtalk-plugin/index.mjs'
 import { app, dialog } from 'electron'
 import { SyncHook, AsyncSeriesHook } from 'tapable'
 import {
   readConfigFile,
   getPublicDbFilePath
-} from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+} from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
 // import { pipeWriteRegardlessError } from '../utils/pipe'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import { AUTO_CHAT_ERROR_EXIT_CODE } from '../../../common/enums/auto-start-chat'
 import attachListenerForKillSelfOnParentExited from '../../utils/attachListenerForKillSelfOnParentExited'
 import minimist from 'minimist'
-import SqlitePluginModule from '@job-launcher/sqlite-plugin'
+import SqlitePluginModule from '@geekgeekrun/sqlite-plugin'
 import gtag from '../../utils/gtag'
 import GtagPlugin from '../../utils/gtag/GtagPlugin'
 import { connectToDaemon, sendToDaemon } from '../OPEN_SETTING_WINDOW/connect-to-daemon'
@@ -66,7 +66,7 @@ const runAutoChat = async () => {
     })
     sendToDaemon({
       type: 'worker-to-gui-message',
-      workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+      workerId: process.env.GEEKGEEKRUND_WORKER_ID,
       data: {
         type: 'prerequisite-step-by-step-check',
         step: {
@@ -81,7 +81,7 @@ const runAutoChat = async () => {
   }
   sendToDaemon({
     type: 'worker-to-gui-message',
-    workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+    workerId: process.env.GEEKGEEKRUND_WORKER_ID,
     data: {
       type: 'prerequisite-step-by-step-check',
       step: {
@@ -93,7 +93,7 @@ const runAutoChat = async () => {
   })
   process.env.PUPPETEER_EXECUTABLE_PATH = puppeteerExecutable.executablePath
   const { initPuppeteer, mainLoop, closeBrowserWindow, autoStartChatEventBus } = await import(
-    '@job-launcher/geek-auto-start-chat-with-boss/index.mjs'
+    '@geekgeekrun/geek-auto-start-chat-with-boss/index.mjs'
   )
   process.on('disconnect', () => {
     closeBrowserWindow()
@@ -185,7 +185,7 @@ export const waitForProcessHandShakeAndRunAutoChat = async () => {
   )
   sendToDaemon({
     type: 'worker-to-gui-message',
-    workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+    workerId: process.env.GEEKGEEKRUND_WORKER_ID,
     data: {
       type: 'prerequisite-step-by-step-check',
       step: {

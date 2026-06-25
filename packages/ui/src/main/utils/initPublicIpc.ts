@@ -9,7 +9,7 @@ import {
   configFileNameList,
   readConfigFile,
   readStorageFile
-} from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+} from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
 
 export default function initPublicIpc() {
   ipcMain.on(
@@ -43,7 +43,7 @@ export default function initPublicIpc() {
   })
   ipcMain.on('send-feed-back-to-github-issue', (ev, payload) => {
     const getIssueUrlWithBody = (issueBody: string = '') => {
-      const baseUrl = `https://github.com/The-AlexLiu/Job-Launcher/issues/new`
+      const baseUrl = `https://github.com/geekgeekrun/geekgeekrun/issues/new`
       issueBody = issueBody || ''
       if (!issueBody || !issueBody.trim()) {
         return baseUrl

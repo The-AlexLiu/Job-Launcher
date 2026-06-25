@@ -50,15 +50,15 @@ const runDebug = async () => {
   process.env.PUPPETEER_EXECUTABLE_PATH = puppeteerExecutable.executablePath
 
   log('动态 import boss package...')
-  const { initPuppeteer } = (await import('@job-launcher/boss-auto-browse-and-chat/index.mjs')) as any
+  const { initPuppeteer } = (await import('@geekgeekrun/boss-auto-browse-and-chat/index.mjs')) as any
   const {
     requestAttachmentResume,
     openOnlineResume,
     hasIncomingAttachResumeRequest,
     acceptIncomingAttachResume,
     openPreviewAndDownloadPdf,
-  } = (await import('@job-launcher/boss-auto-browse-and-chat/chat-page-resume.mjs')) as any
-  const { setupCanvasTextHook, extractResumeText } = (await import('@job-launcher/boss-auto-browse-and-chat/resume-extractor.mjs')) as any
+  } = (await import('@geekgeekrun/boss-auto-browse-and-chat/chat-page-resume.mjs')) as any
+  const { setupCanvasTextHook, extractResumeText } = (await import('@geekgeekrun/boss-auto-browse-and-chat/resume-extractor.mjs')) as any
   const {
     BOSS_CHAT_PAGE_URL,
     CHAT_PAGE_ONLINE_RESUME_CLOSE_SELECTOR,
@@ -66,10 +66,10 @@ const runDebug = async () => {
     CHAT_PAGE_INTENT_DIALOG_CLOSE_SELECTOR,
     CHAT_PAGE_ACTIVE_NAME_SELECTOR,
     CHAT_PAGE_PREVIEW_RESUME_BTN_SELECTOR
-  } = (await import('@job-launcher/boss-auto-browse-and-chat/constant.mjs')) as any
-  const { createHumanCursor } = (await import('@job-launcher/boss-auto-browse-and-chat/humanMouse.mjs')) as any
-  const { readStorageFile, ensureStorageFileExist } = (await import('@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs')) as any
-  const { setDomainLocalStorage } = (await import('@job-launcher/utils/puppeteer/local-storage.mjs')) as any
+  } = (await import('@geekgeekrun/boss-auto-browse-and-chat/constant.mjs')) as any
+  const { createHumanCursor } = (await import('@geekgeekrun/boss-auto-browse-and-chat/humanMouse.mjs')) as any
+  const { readStorageFile, ensureStorageFileExist } = (await import('@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs')) as any
+  const { setDomainLocalStorage } = (await import('@geekgeekrun/utils/puppeteer/local-storage.mjs')) as any
 
   const { puppeteer } = await initPuppeteer()
   ensureStorageFileExist()

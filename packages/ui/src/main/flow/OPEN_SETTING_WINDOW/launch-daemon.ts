@@ -4,7 +4,7 @@ import {
   ensureStorageFileExist,
   writeStorageFile,
   readStorageFile
-} from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+} from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
 import { randomUUID } from 'node:crypto'
 import { connectToDaemon } from './connect-to-daemon'
 
@@ -14,11 +14,11 @@ export async function ensureIpcPipeName({ isReset } = {}) {
   }
   let ipcPipeName = readStorageFile('ipc-pipe-name', { isJson: false })
   if (!ipcPipeName) {
-    ipcPipeName = `job-launcher-d_${randomUUID()}`
+    ipcPipeName = `geekgeekrun-d_${randomUUID()}`
     ensureStorageFileExist()
     await writeStorageFile('ipc-pipe-name', ipcPipeName, { isJson: false })
   }
-  process.env.JOBLAUNCHERD_PIPE_NAME = ipcPipeName
+  process.env.GEEKGEEKRUND_PIPE_NAME = ipcPipeName
   return ipcPipeName
 }
 

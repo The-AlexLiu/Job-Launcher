@@ -596,7 +596,7 @@
 
 <script setup lang="tsx">
 import { gtagRenderer as baseGtagRenderer } from '@renderer/utils/gtag'
-import { JobDetailRegExpMatchLogic, SalaryCalculateWay } from '@job-launcher/sqlite-plugin/src/enums'
+import { JobDetailRegExpMatchLogic, SalaryCalculateWay } from '@geekgeekrun/sqlite-plugin/src/enums'
 import CityChooser from '../MainLayout/GeekAutoStartChatWithBoss/components/CityChooser.vue'
 import { QuestionFilled, ArrowDown } from '@element-plus/icons-vue'
 
@@ -681,7 +681,7 @@ function handleHowToFillDetailFilterClick() {
   gtagRenderer('click_filter_guide')
   electron.ipcRenderer.send(
     'open-external-link',
-    ''
+    'https://github.com/The-AlexLiu/Job-Launcher'
   )
 }
 

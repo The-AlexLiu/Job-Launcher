@@ -33,10 +33,10 @@ const { tmpdir } = require('os')
 const { randomUUID } = require('crypto')
 
 const ipcWritePipe = fs.createWriteStream(null, { fd: 3 })
-let ipcSocketName = process.env.JOBLAUNCHERD_PIPE_NAME
+let ipcSocketName = process.env.GEEKGEEKRUND_PIPE_NAME
 if (!ipcSocketName) {
-  process.env.JOBLAUNCHERD_PIPE_NAME = `job-launcher-d_${randomUUID()}`
-  ipcSocketName = process.env.JOBLAUNCHERD_PIPE_NAME
+  process.env.GEEKGEEKRUND_PIPE_NAME = `geekgeekrun-d_${randomUUID()}`
+  ipcSocketName = process.env.GEEKGEEKRUND_PIPE_NAME
 }
 const ipcSocketPath = process.platform === 'win32'
     ? `\\\\.\\pipe\\${ipcSocketName}`
@@ -247,7 +247,7 @@ function handleMessage(socket, message) {
 // 启动工具进程
 function startWorker({ workerId, command, args, env }, restartCount = 0) {
   const noAutoRestartExitCodeSet = new Set([0]);
-  (env.JOBLAUNCHERD_NO_AUTO_RESTART_EXIT_CODE ?? '')
+  (env.GEEKGEEKRUND_NO_AUTO_RESTART_EXIT_CODE ?? '')
     .split(',')
     .map(n => parseInt(n))
     .forEach(n => noAutoRestartExitCodeSet.add(n))
@@ -259,8 +259,8 @@ function startWorker({ workerId, command, args, env }, restartCount = 0) {
     env: {
       ...process.env,
       ...env,
-      JOBLAUNCHERD_WORKER_ID: workerId,
-      JOBLAUNCHERD_RESTART_COUNT: restartCount.toString(),
+      GEEKGEEKRUND_WORKER_ID: workerId,
+      GEEKGEEKRUND_RESTART_COUNT: restartCount.toString(),
     }
   });
 

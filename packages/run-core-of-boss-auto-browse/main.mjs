@@ -1,17 +1,17 @@
-import startBossAutoBrowse from '@job-launcher/boss-auto-browse-and-chat/index.mjs'
-import { readConfigFile } from '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+import startBossAutoBrowse from '@geekgeekrun/boss-auto-browse-and-chat/index.mjs'
+import { readConfigFile } from '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
 import {
   AsyncSeriesHook,
   AsyncSeriesWaterfallHook
 } from 'tapable'
 import path from 'node:path'
-import { readStorageFile, storageFilePath } from '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+import { readStorageFile, storageFilePath } from '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
 
 const getPublicDbFilePath = () => path.join(storageFilePath, 'public.db')
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import { BOSS_AUTO_ERROR_EXIT_CODE } from './enums.mjs'
 
-import SqlitePluginModule from '@job-launcher/sqlite-plugin'
+import SqlitePluginModule from '@geekgeekrun/sqlite-plugin'
 const { default: SqlitePlugin } = SqlitePluginModule
 
 const rerunInterval = (() => {

@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
 import { onMounted } from 'vue'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import { gtagRenderer } from '@renderer/utils/gtag'
 
 const router = useRouter()

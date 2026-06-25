@@ -2,7 +2,7 @@ import fs from 'fs'
 import os from 'os'
 import path from 'path'
 import buildInfo from '../../common/build-info.json'
-import { ensureStorageFileExist } from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+import { ensureStorageFileExist } from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
 import {
   createFirstLaunchNoticeWindow,
   firstLaunchNoticeWindow
@@ -11,7 +11,7 @@ import { ipcMain } from 'electron'
 
 export const firstLaunchNoticeApproveFlagPath = path.join(
   os.homedir(),
-  '.job-launcher/storage',
+  '.geekgeekrun/storage',
   'ui-first-launch-notice-flag'
 )
 

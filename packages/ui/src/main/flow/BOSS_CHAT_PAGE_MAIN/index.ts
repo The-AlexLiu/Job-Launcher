@@ -1,10 +1,10 @@
 import { app, dialog } from 'electron'
 import { AsyncSeriesHook, AsyncSeriesWaterfallHook } from 'tapable'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import { AUTO_CHAT_ERROR_EXIT_CODE } from '../../../common/enums/auto-start-chat'
 import attachListenerForKillSelfOnParentExited from '../../utils/attachListenerForKillSelfOnParentExited'
 import minimist from 'minimist'
-import SqlitePluginModule from '@job-launcher/sqlite-plugin'
+import SqlitePluginModule from '@geekgeekrun/sqlite-plugin'
 import { connectToDaemon, sendToDaemon } from '../OPEN_SETTING_WINDOW/connect-to-daemon'
 import { checkShouldExit } from '../../utils/worker'
 import initPublicIpc from '../../utils/initPublicIpc'
@@ -28,7 +28,7 @@ const rerunInterval = (() => {
 
 const initPlugins = async (hooks) => {
   const { storageFilePath } = await import(
-    '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+    '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
   )
   new SqlitePlugin(path.join(storageFilePath, 'public.db')).apply(hooks)
 }
@@ -76,7 +76,7 @@ const waitForBossVerificationCompletion = async (page: any, expectedUrlPrefix: s
   try {
     const { Notification } = await import('electron')
     new Notification({
-      title: 'Job Launcher - 需要人工验证',
+      title: 'GeekGeekRun - 需要人工验证',
       body: '检测到 BOSS 直聘安全验证，请在打开的浏览器窗口中完成验证，完成后程序将自动继续。'
     }).show()
   } catch { /* Notification 不可用时静默忽略 */ }
@@ -152,8 +152,8 @@ const runChatPage = async () => {
     startBossChatPageProcess,
     initPuppeteer,
     dismissGovernanceNoticeDialog
-  } = (await import('@job-launcher/boss-auto-browse-and-chat/index.mjs')) as unknown as BossAutoBrowseModule
-  const { setupCanvasTextHook } = (await import('@job-launcher/boss-auto-browse-and-chat/resume-extractor.mjs')) as any
+  } = (await import('@geekgeekrun/boss-auto-browse-and-chat/index.mjs')) as unknown as BossAutoBrowseModule
+  const { setupCanvasTextHook } = (await import('@geekgeekrun/boss-auto-browse-and-chat/resume-extractor.mjs')) as any
   log('boss package import 完成，初始化 puppeteer...')
 
   process.on('disconnect', () => {
@@ -195,11 +195,11 @@ const runChatPage = async () => {
     })
   })
 
-  const { readStorageFile, ensureStorageFileExist } = await import('@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs') as any
+  const { readStorageFile, ensureStorageFileExist } = await import('@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs') as any
   ensureStorageFileExist()
 
-  const { BOSS_CHAT_PAGE_URL } = await import('@job-launcher/boss-auto-browse-and-chat/constant.mjs') as any
-  const { setDomainLocalStorage } = await import('@job-launcher/utils/puppeteer/local-storage.mjs') as any
+  const { BOSS_CHAT_PAGE_URL } = await import('@geekgeekrun/boss-auto-browse-and-chat/constant.mjs') as any
+  const { setDomainLocalStorage } = await import('@geekgeekrun/utils/puppeteer/local-storage.mjs') as any
   const localStoragePageUrl = 'https://www.zhipin.com/desktop/'
 
   // browser/page/canvas hooks 提升到循环外，验证完成后可复用
@@ -214,7 +214,7 @@ const runChatPage = async () => {
   while (true) {
     try {
       const { readConfigFile: readCfg } = await import(
-        '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+        '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
       ) as any
       const cfg = readCfg('boss-recruiter.json') as {
         chatPage?: {
@@ -232,7 +232,7 @@ const runChatPage = async () => {
         await hooks.beforeBrowserLaunch?.promise?.()
 
         const { buildRecruiterLaunchOptions } = (await import(
-          '@job-launcher/boss-auto-browse-and-chat/launch-options.mjs'
+          '@geekgeekrun/boss-auto-browse-and-chat/launch-options.mjs'
         )) as any
         const launchOpts = await buildRecruiterLaunchOptions()
         log(`使用 launch options：persistProfile=${!!launchOpts.userDataDir}`)
@@ -251,7 +251,7 @@ const runChatPage = async () => {
         peekCapturedText = canvasHooks.peekCapturedText
 
         const { randomizeInitialCursorPosition } = (await import(
-          '@job-launcher/boss-auto-browse-and-chat/humanMouse.mjs'
+          '@geekgeekrun/boss-auto-browse-and-chat/humanMouse.mjs'
         )) as any
         await randomizeInitialCursorPosition(page).catch(() => {})
 
@@ -279,7 +279,7 @@ const runChatPage = async () => {
 
       log('读取职位队列配置...')
       const { readBossJobsConfig } = await import(
-        '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+        '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
       ) as any
       const jobsConfig = readBossJobsConfig()
       const allJobs = jobsConfig?.jobs || []
@@ -413,7 +413,7 @@ const runChatPage = async () => {
         return
       }
       const { readConfigFile: readErrCfg } = await import(
-        '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+        '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
       ) as any
       const errCfg = readErrCfg('boss-recruiter.json') as { chatPage?: { rerunIntervalMs?: number } }
       const errRerunMs = errCfg?.chatPage?.rerunIntervalMs ?? rerunInterval

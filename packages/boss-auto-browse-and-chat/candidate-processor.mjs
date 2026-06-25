@@ -9,7 +9,7 @@ import {
   CANDIDATE_NAME_SELECTOR,
   NEXT_PAGE_BUTTON_SELECTOR
 } from './constant.mjs'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import { createHumanCursor } from './humanMouse.mjs'
 import { debug as logDebug, info as logInfo, warn as logWarn } from './logger.mjs'
 

@@ -16,7 +16,7 @@ importers:
 
   .:
     dependencies:
-      '@job-launcher/puppeteer-extra-plugin-laodeng':
+      '@geekgeekrun/puppeteer-extra-plugin-laodeng':
         specifier: workspace:*
         version: link:packages/laodeng
       cheerio:
@@ -56,13 +56,13 @@ importers:
 
   packages/boss-auto-browse-and-chat:
     dependencies:
-      '@job-launcher/puppeteer-extra-plugin-laodeng':
+      '@geekgeekrun/puppeteer-extra-plugin-laodeng':
         specifier: workspace:*
         version: link:../laodeng
-      '@job-launcher/sqlite-plugin':
+      '@geekgeekrun/sqlite-plugin':
         specifier: workspace:*
         version: link:../sqlite-plugin
-      '@job-launcher/utils':
+      '@geekgeekrun/utils':
         specifier: workspace:*
         version: link:../utils
       ghost-cursor:
@@ -91,7 +91,7 @@ importers:
 
   packages/geek-auto-start-chat-with-boss:
     dependencies:
-      '@job-launcher/utils':
+      '@geekgeekrun/utils':
         specifier: workspace:*
         version: link:../utils
 
@@ -112,10 +112,10 @@ importers:
 
   packages/launch-bosszhipin-login-page-with-preload-extension:
     dependencies:
-      '@job-launcher/geek-auto-start-chat-with-boss':
+      '@geekgeekrun/geek-auto-start-chat-with-boss':
         specifier: workspace:*
         version: link:../geek-auto-start-chat-with-boss
-      '@job-launcher/utils':
+      '@geekgeekrun/utils':
         specifier: workspace:*
         version: link:../utils
       extract-zip:
@@ -140,28 +140,28 @@ importers:
 
   packages/run-core-of-boss-auto-browse:
     dependencies:
-      '@job-launcher/boss-auto-browse-and-chat':
+      '@geekgeekrun/boss-auto-browse-and-chat':
         specifier: workspace:*
         version: link:../boss-auto-browse-and-chat
-      '@job-launcher/sqlite-plugin':
+      '@geekgeekrun/sqlite-plugin':
         specifier: workspace:*
         version: link:../sqlite-plugin
-      '@job-launcher/utils':
+      '@geekgeekrun/utils':
         specifier: workspace:*
         version: link:../utils
 
   packages/run-core-of-geek-auto-start-chat-with-boss:
     dependencies:
-      '@job-launcher/dingtalk-plugin':
+      '@geekgeekrun/dingtalk-plugin':
         specifier: workspace:*
         version: link:../dingtalk-plugin
-      '@job-launcher/geek-auto-start-chat-with-boss':
+      '@geekgeekrun/geek-auto-start-chat-with-boss':
         specifier: workspace:*
         version: link:../geek-auto-start-chat-with-boss
-      '@job-launcher/sqlite-plugin':
+      '@geekgeekrun/sqlite-plugin':
         specifier: workspace:*
         version: link:../sqlite-plugin
-      '@job-launcher/utils':
+      '@geekgeekrun/utils':
         specifier: workspace:*
         version: link:../utils
 
@@ -204,22 +204,22 @@ importers:
       '@electron-toolkit/utils':
         specifier: ^3.0.0
         version: 3.0.0(electron@39.2.7)
-      '@job-launcher/boss-auto-browse-and-chat':
+      '@geekgeekrun/boss-auto-browse-and-chat':
         specifier: workspace:*
         version: link:../boss-auto-browse-and-chat
-      '@job-launcher/launch-bosszhipin-login-page-with-preload-extension':
+      '@geekgeekrun/launch-bosszhipin-login-page-with-preload-extension':
         specifier: workspace:*
         version: link:../launch-bosszhipin-login-page-with-preload-extension
-      '@job-launcher/pm':
+      '@geekgeekrun/pm':
         specifier: workspace:*
         version: link:../pm
-      '@job-launcher/puppeteer-extra-plugin-laodeng':
+      '@geekgeekrun/puppeteer-extra-plugin-laodeng':
         specifier: workspace:*
         version: link:../laodeng
-      '@job-launcher/sqlite-plugin':
+      '@geekgeekrun/sqlite-plugin':
         specifier: workspace:*
         version: link:../sqlite-plugin
-      '@job-launcher/utils':
+      '@geekgeekrun/utils':
         specifier: workspace:*
         version: link:../utils
       JSONStream:
@@ -268,18 +268,18 @@ importers:
       '@electron-toolkit/tsconfig':
         specifier: ^1.0.1
         version: 1.0.1(@types/node@18.19.130)
+      '@geekgeekrun/dingtalk-plugin':
+        specifier: workspace:*
+        version: link:../dingtalk-plugin
+      '@geekgeekrun/geek-auto-start-chat-with-boss':
+        specifier: workspace:*
+        version: link:../geek-auto-start-chat-with-boss
       '@inquirer/prompts':
         specifier: ^7.0.1
         version: 7.10.1(@types/node@18.19.130)
       '@inquirer/select':
         specifier: ^4.0.1
         version: 4.4.2(@types/node@18.19.130)
-      '@job-launcher/dingtalk-plugin':
-        specifier: workspace:*
-        version: link:../dingtalk-plugin
-      '@job-launcher/geek-auto-start-chat-with-boss':
-        specifier: workspace:*
-        version: link:../geek-auto-start-chat-with-boss
       '@puppeteer/browsers':
         specifier: ^2.11.0
         version: 2.13.0

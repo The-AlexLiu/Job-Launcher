@@ -10,9 +10,9 @@ process.env = { ...process.env, ...loadEnv(process.env.NODE_ENV!, process.cwd())
 const mainPlugins = [
   externalizeDepsPlugin({
     exclude: [
-      '@job-launcher/utils',
+      '@geekgeekrun/utils',
       'find-chrome-bin',
-      '@job-launcher/launch-bosszhipin-login-page-with-preload-extension'
+      '@geekgeekrun/launch-bosszhipin-login-page-with-preload-extension'
     ]
   }),
   Replace({

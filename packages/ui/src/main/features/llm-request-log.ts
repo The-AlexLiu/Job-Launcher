@@ -1,4 +1,4 @@
-import { saveGptCompletionRequestRecord } from '@job-launcher/sqlite-plugin/dist/handlers'
+import { saveGptCompletionRequestRecord } from '@geekgeekrun/sqlite-plugin/dist/handlers'
 
 export enum RequestSceneEnum {
   testing = 1,
@@ -9,9 +9,9 @@ export enum RequestSceneEnum {
 let dbInitPromise
 export const recordGptCompletionRequest = async (payload) => {
   const { getPublicDbFilePath } = await import(
-    '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+    '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
   )
-  const { initDb } = await import('@job-launcher/sqlite-plugin')
+  const { initDb } = await import('@geekgeekrun/sqlite-plugin')
 
   if (!dbInitPromise) {
     dbInitPromise = initDb(getPublicDbFilePath())

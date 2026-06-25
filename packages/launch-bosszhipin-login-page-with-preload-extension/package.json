@@ -1,5 +1,5 @@
 {
-  "name": "@job-launcher/launch-bosszhipin-login-page-with-preload-extension",
+  "name": "@geekgeekrun/launch-bosszhipin-login-page-with-preload-extension",
   "private": true,
   "version": "1.0.0",
   "description": "launch-bosszhipin-login-page-with-preload-extension",
@@ -9,8 +9,8 @@
   "author": "Alex Liu",
   "license": "ISC",
   "dependencies": {
-    "@job-launcher/geek-auto-start-chat-with-boss": "workspace:*",
-    "@job-launcher/utils": "workspace:*",
+    "@geekgeekrun/geek-auto-start-chat-with-boss": "workspace:*",
+    "@geekgeekrun/utils": "workspace:*",
     "extract-zip": "^2.0.1",
     "node-fetch": "^3.3.2"
   }

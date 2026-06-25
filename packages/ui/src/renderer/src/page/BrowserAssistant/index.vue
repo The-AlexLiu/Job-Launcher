@@ -207,7 +207,7 @@ import debounce from 'lodash/debounce'
 import { ElMessage } from 'element-plus'
 import { gtagRenderer as baseGtagRenderer } from '@renderer/utils/gtag'
 import { EXPECT_CHROMIUM_BUILD_ID } from '../../../../common/constant'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 const { ipcRenderer } = electron
 useRouter()
 // const checkDependenciesResult = ref({})
@@ -272,7 +272,7 @@ async function autoDetectPuppeteerExecutable() {
     }
     gtagRenderer('auto_detect_pptr_exe_done', {
       isUseCached: !!(
-        result.executablePath?.includes(`cache`) && result.executablePath?.includes(`.job-launcher`)
+        result.executablePath?.includes(`cache`) && result.executablePath?.includes(`.geekgeekrun`)
       ),
       executableName: result.executablePath?.split(/\/|\\/).pop() ?? ''
     })
@@ -367,7 +367,7 @@ const handleClickLaunchBrowserDownloader = async () => {
     } else {
       ElMessage({
         message:
-          '浏览器下载成功，但未返回可执行文件路径。请点击自动检测，或手动选择~/.job-launcher/cache/chrome文件夹下的文件，或重新下载',
+          '浏览器下载成功，但未返回可执行文件路径。请点击自动检测，或手动选择~/.geekgeekrun/cache/chrome文件夹下的文件，或重新下载',
         type: 'success',
         grouping: true
       })

@@ -1,20 +1,20 @@
-import DingtalkPlugin from '@job-launcher/dingtalk-plugin/index.mjs'
-import { mainLoop, closeBrowserWindow } from '@job-launcher/geek-auto-start-chat-with-boss/index.mjs'
+import DingtalkPlugin from '@geekgeekrun/dingtalk-plugin/index.mjs'
+import { mainLoop, closeBrowserWindow } from '@geekgeekrun/geek-auto-start-chat-with-boss/index.mjs'
 import {
   SyncHook,
   AsyncSeriesHook
 } from 'tapable'
 import fs from 'node:fs'
 import path from 'node:path'
-import { get__dirname } from '@job-launcher/utils/legacy-path.mjs';
+import { get__dirname } from '@geekgeekrun/utils/legacy-path.mjs';
 import JSON5 from 'json5'
-import { readConfigFile, readStorageFile, getPublicDbFilePath } from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { readConfigFile, readStorageFile, getPublicDbFilePath } from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import {
   AUTO_CHAT_ERROR_EXIT_CODE
 } from './enums.mjs'
 
-import SqlitePluginModule from '@job-launcher/sqlite-plugin'
+import SqlitePluginModule from '@geekgeekrun/sqlite-plugin'
 const {
   default: SqlitePlugin
 } = SqlitePluginModule

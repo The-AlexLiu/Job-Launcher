@@ -1,15 +1,15 @@
 
 import {
   initPuppeteer
-} from '@job-launcher/geek-auto-start-chat-with-boss/index.mjs'
+} from '@geekgeekrun/geek-auto-start-chat-with-boss/index.mjs'
 import {
   sleep,
   sleepWithRandomDelay
-} from '@job-launcher/utils/sleep.mjs'
-import { blockNavigation } from '@job-launcher/utils/puppeteer/block-navigation.mjs'
+} from '@geekgeekrun/utils/sleep.mjs'
+import { blockNavigation } from '@geekgeekrun/utils/puppeteer/block-navigation.mjs'
 import {
   writeStorageFile
-} from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+} from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
 
 import JSON5 from 'json5'
 import url from 'url';

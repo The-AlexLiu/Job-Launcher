@@ -2,11 +2,11 @@ import { sendToDaemon } from '../flow/OPEN_SETTING_WINDOW/connect-to-daemon'
 import minimist from 'minimist'
 import { loginWithCookieAssistant } from './login-with-cookie-assistant'
 import { checkCookieListFormat } from '../../common/utils/cookie'
-import { sleep } from '@job-launcher/utils/sleep.mjs'
+import { sleep } from '@geekgeekrun/utils/sleep.mjs'
 import {
   readStorageFile,
   writeStorageFile
-} from '@job-launcher/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
+} from '@geekgeekrun/geek-auto-start-chat-with-boss/runtime-file-utils.mjs'
 
 const runRecordId = minimist(process.argv.slice(2))['run-record-id'] ?? null
 export class CookieInvalidHandlePlugin {
@@ -47,7 +47,7 @@ export class CookieInvalidHandlePlugin {
           if (e?.message === 'USER_CANCELLED_LOGIN') {
             sendToDaemon({
               type: 'worker-to-gui-message',
-              workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+              workerId: process.env.GEEKGEEKRUND_WORKER_ID,
               data: {
                 type: 'prerequisite-step-by-step-check',
                 step: {
@@ -63,7 +63,7 @@ export class CookieInvalidHandlePlugin {
       }
       sendToDaemon({
         type: 'worker-to-gui-message',
-        workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+        workerId: process.env.GEEKGEEKRUND_WORKER_ID,
         data: {
           type: 'prerequisite-step-by-step-check',
           step: {
@@ -78,7 +78,7 @@ export class CookieInvalidHandlePlugin {
       if (userInfoResponse.code === 0) {
         sendToDaemon({
           type: 'worker-to-gui-message',
-          workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+          workerId: process.env.GEEKGEEKRUND_WORKER_ID,
           data: {
             type: 'prerequisite-step-by-step-check',
             step: {
@@ -115,7 +115,7 @@ export class CookieInvalidHandlePlugin {
         if (e?.message === 'USER_CANCELLED_LOGIN') {
           sendToDaemon({
             type: 'worker-to-gui-message',
-            workerId: process.env.JOBLAUNCHERD_WORKER_ID,
+            workerId: process.env.GEEKGEEKRUND_WORKER_ID,
             data: {
               type: 'prerequisite-step-by-step-check',
               step: {

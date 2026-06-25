@@ -70,7 +70,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/main-layout',
     component: () => import('@renderer/page/MainLayout/index.vue'),
     redirect: () => {
-      const lastPath = localStorage.getItem('job-launcher_last_main_layout_path')
+      const lastPath = localStorage.getItem('geekgeekrun_last_main_layout_path')
       return lastPath || '/main-layout/GeekAutoStartChatWithBoss'
     },
     children: [
@@ -234,9 +234,9 @@ const router = createRouter({
 
 router.afterEach((to, from) => {
   if (to.meta?.title) {
-    document.title = `${to.meta.title} - Job Launcher Job Launcher`
+    document.title = `${to.meta.title} - Job Launcher`
   } else {
-    document.title = `Job Launcher Job Launcher`
+    document.title = `Job Launcher`
   }
   gtagRenderer('router_path_changed', {
     from_path: from.fullPath,

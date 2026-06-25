@@ -214,11 +214,11 @@ async function sendOneRequestWithRetry(
 export async function getWebhookStorageDir(): Promise<string> {
   try {
     const { storageFilePath } = (await import(
-      '@job-launcher/boss-auto-browse-and-chat/runtime-file-utils.mjs'
+      '@geekgeekrun/boss-auto-browse-and-chat/runtime-file-utils.mjs'
     )) as { storageFilePath: string }
     return storageFilePath
   } catch {
-    return path.join(os.homedir(), '.job-launcher', 'storage')
+    return path.join(os.homedir(), '.geekgeekrun', 'storage')
   }
 }
 
@@ -359,11 +359,11 @@ export function buildMockPayload(): WebhookPayload {
 
 /** 从 SQLite 查询最近一轮联系人，组装为 WebhookPayload（用于手动触发真实数据） */
 export async function buildPayloadFromDb(dbPath: string): Promise<WebhookPayload | null> {
-  const { initDb } = await import('@job-launcher/sqlite-plugin')
+  const { initDb } = await import('@geekgeekrun/sqlite-plugin')
   const {
     getRecentCandidateContactLogs,
     queryCandidateByEncryptId
-  } = await import('@job-launcher/sqlite-plugin/dist/handlers')
+  } = await import('@geekgeekrun/sqlite-plugin/dist/handlers')
   const ds = await initDb(dbPath)
   const logs = await getRecentCandidateContactLogs(ds, 50)
   if (logs.length === 0) {

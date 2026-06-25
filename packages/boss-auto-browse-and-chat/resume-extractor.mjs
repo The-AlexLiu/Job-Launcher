@@ -141,7 +141,7 @@ export function parseGeekInfoFromIntercepted (interceptedMap) {
 // Canvas 文字 Hook（与 laodeng 兼容）— 非 BOSS 自带，可能被反爬检测，沟通页请用 API 拦截
 // ---------------------------------------------------------------------------
 
-const CANVAS_HOOK_DEBUG = process.env.JOBLAUNCHER_CANVAS_HOOK_DEBUG === '1'
+const CANVAS_HOOK_DEBUG = process.env.GEEKGEEKRUN_CANVAS_HOOK_DEBUG === '1'
 
 /**
  * 在页面上通过 evaluateOnNewDocument 注入 Canvas fillText hook，将绘制文字收集到主页面随机命名的 marker 属性上。
@@ -177,7 +177,7 @@ export async function setupCanvasTextHook (page) {
 
   // 注册 fillText 包装的伪原生 toString（依赖 laodeng 已被 puppeteer.use 装载）
   try {
-    const laodengMod = await import('@job-launcher/puppeteer-extra-plugin-laodeng')
+    const laodengMod = await import('@geekgeekrun/puppeteer-extra-plugin-laodeng')
     const registerFakeNativeSource =
       laodengMod.registerFakeNativeSource ?? laodengMod.default?.registerFakeNativeSource
     if (typeof registerFakeNativeSource === 'function') {

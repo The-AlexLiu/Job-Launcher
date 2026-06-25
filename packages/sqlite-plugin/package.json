@@ -1,5 +1,5 @@
 {
-  "name": "@job-launcher/sqlite-plugin",
+  "name": "@geekgeekrun/sqlite-plugin",
   "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
@@ -20,6 +20,5 @@
     "dev": "rimraf dist && tsc --outDir dist --watch true",
     "build": "rimraf dist && tsc --outDir dist",
     "postinstall": "npm run build || exit 0;"
-  },
-  "author": "Alex Liu"
+  }
 }

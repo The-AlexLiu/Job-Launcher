@@ -36,7 +36,7 @@ export async function runCommon({ mode }) {
   const currentRunRecord = (await saveAndGetCurrentRunRecord())?.data
   const subProcessEnv = {
     ...process.env,
-    JOBLAUNCHERD_NO_AUTO_RESTART_EXIT_CODE: [
+    GEEKGEEKRUND_NO_AUTO_RESTART_EXIT_CODE: [
       AUTO_CHAT_ERROR_EXIT_CODE.PUPPETEER_IS_NOT_EXECUTABLE,
       AUTO_CHAT_ERROR_EXIT_CODE.LOGIN_STATUS_INVALID,
       AUTO_CHAT_ERROR_EXIT_CODE.LLM_UNAVAILABLE
@@ -63,7 +63,7 @@ export async function runCommon({ mode }) {
       if (
         message.workerId === mode &&
         !message.restarting &&
-        globalThis.JOBLAUNCHER_PROCESS_ROLE !== 'ui'
+        globalThis.GEEKGEEKRUN_PROCESS_ROLE !== 'ui'
       ) {
         process.exit(0)
       }

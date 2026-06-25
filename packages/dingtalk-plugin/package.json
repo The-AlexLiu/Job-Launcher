@@ -1,8 +1,8 @@
 {
-  "name": "@job-launcher/dingtalk-plugin",
+  "name": "@geekgeekrun/dingtalk-plugin",
   "private": true,
   "version": "1.0.0",
-  "description": "@job-launcher/dingtalk-plugin",
+  "description": "@geekgeekrun/dingtalk-plugin",
   "module": "./index.mjs",
   "type": "module",
   "scripts": {},
