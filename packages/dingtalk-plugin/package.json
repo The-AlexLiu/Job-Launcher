@@ -1,0 +1,12 @@
+{
+  "name": "@job-launcher/dingtalk-plugin",
+  "private": true,
+  "version": "1.0.0",
+  "description": "@job-launcher/dingtalk-plugin",
+  "module": "./index.mjs",
+  "type": "module",
+  "scripts": {},
+  "author": "Alex Liu",
+  "license": "ISC",
+  "dependencies": {}
+}

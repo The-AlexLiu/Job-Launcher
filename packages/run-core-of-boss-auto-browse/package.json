@@ -1,0 +1,19 @@
+{
+  "name": "@job-launcher/run-core-of-boss-auto-browse",
+  "private": true,
+  "version": "1.0.0",
+  "description": "run-core-of-boss-auto-browse",
+  "module": "./main.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node ./daemon-main.mjs",
+    "start:bare": "node ./main.mjs"
+  },
+  "author": "Alex Liu",
+  "license": "ISC",
+  "dependencies": {
+    "@job-launcher/boss-auto-browse-and-chat": "workspace:*",
+    "@job-launcher/utils": "workspace:*",
+    "@job-launcher/sqlite-plugin": "workspace:*"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@job-launcher/utils",
+  "private": true,
+  "version": "1.0.0",
+  "description": "utils",
+  "scripts": {},
+  "author": "Alex Liu",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^4.91.1"
+  }
+}

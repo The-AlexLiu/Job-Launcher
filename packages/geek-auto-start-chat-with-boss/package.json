@@ -1,0 +1,14 @@
+{
+  "name": "@job-launcher/geek-auto-start-chat-with-boss",
+  "private": true,
+  "version": "1.0.0",
+  "description": "auto-start-chat-with-boss",
+  "module": "./index.mjs",
+  "type": "module",
+  "scripts": {},
+  "author": "Alex Liu",
+  "license": "ISC",
+  "dependencies": {
+    "@job-launcher/utils": "workspace:*"
+  }
+}

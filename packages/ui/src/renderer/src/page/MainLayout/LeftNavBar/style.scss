@@ -1,0 +1,39 @@
+.group-item {
+  .group-title {
+    color: #849492;
+    font-size: 12px;
+    padding: 0.25em 0;
+  }
+  .link-list {
+    .nav-sub-label {
+      color: #b0bcba;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.6em 0 0.15em 1em;
+      margin-top: 0.2em;
+      &:first-of-type {
+        margin-top: 0;
+        padding-top: 0.15em;
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 2em;
+      box-sizing: border-box;
+      padding-left: 1em;
+      font-size: 14px;
+      &.router-link-active {
+        background-color: #fff;
+        font-weight: 700;
+        color: #2faa9e;
+        border-radius: 9999px 0 0 9999px;
+        position: relative;
+        box-shadow: 0px 0px 10px rgba(50, 114, 108, 0.187);
+      }
+    }
+  }
+}
